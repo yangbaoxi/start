@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义文字演示</title>
+    <!-- 引入文字js -->
+    <script src="../js/typed.js"></script>
+</head>
+<body>
+    <div class="box">
+        <span id="typed"></span>
+    </div>
+</body>
+<script>
+    // strings  就是 自定义 文字 输出  
+    // contentType  可以换成html   输入 标签
+    new Typed("#typed",{
+        strings:['我是第一段','我是第二段','我是第三段','我是第四段'],
+        typeSpeed:50,
+        fadeOut:true,
+
+        contentType:"text", // 内容类型  就是渲染的 什么类型  html/text 
+    })
+
+</script>
+</html>

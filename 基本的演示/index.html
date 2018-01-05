@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本演示</title>
+    <!-- 引入文字js -->
+    <script src="../js/typed.js"></script>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        .click_btn{
+            margin-top: 100px;
+        }
+        .click_btn a{
+            padding: 8px 15px;
+            color: red;
+            border: 1px solid red;
+            margin-right: 10px;
+        }
+        .click_btn a:nth-child(1){
+            color: rgb(119, 13, 240);
+            border: 1px solid rgb(119, 13, 240);
+        }
+        .click_btn a:nth-child(3){
+            color: green;
+            border: 1px solid green;
+        }
+        .click_btn a:nth-child(4){
+            color: #fff;
+            background: rgb(0, 0, 0);
+        }
+        .click_btn a:nth-child(5){
+            color: #fff;
+            background: red;
+        }
+        .click_btn a:nth-child(6){
+            color: blue;
+            border: 1px solid blue;
+            
+        }
+    </style>
+        
+    <style>
+        /* 光标一闪闪的 css */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            font-size: 3.5rem;
+            color: rgb(255, 0, 128);
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+            -webkit-animation-iteration-count: infinite !important;
+            -moz-animation-iteration-count: infinite !important;
+                    animation-iteration-count: infinite !important;
+        }
+        @keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>这是第一段文字</p>
+        <p>这是第二段文字</p>
+        <p>这是第三段文字</p>
+        <p>这是第四段文字</p>
+    </div>
+    <!-- 渲染的元素 -->
+    <span id="typed"></span>
+
+    <!-- 点击事件 -->
+    <div class="click_btn">
+        <a href="javascript:;" class="toggle">切换</a>
+        <a href="javascript:;" class="stop">停止</a>
+        <a href="javascript:;" class="start">开始</a>
+        <a href="javascript:;" class="reset">复位</a>
+        <a href="javascript:;" class="destroy">卸载Typed对象</a>
+    </div>
+</body>
+<script>
+    //  参数一文字渲染的Dom元素
+    var typed =   new Typed("#typed",{
+        // strings : "",   //  这个 下一个Demo介绍 
+
+        stringsElement:".box",// 字符串元素（被渲染的元素）
+        
+        typeSpeed:300, // 打字速度
+
+        startDelay:100, // 打字开始时间  （可以理解成 延迟时间）
+        
+        backSpeed: 0, // 删除文字的速度  
+
+        backDelay: 100, // 删除文字的 开始时间 （可以理解成 延迟时间）
+
+        loop:false,  //默认true  是否 循环 
+
+        loopCount:false,  //默认false  循环次数  true 为一直循环 或者 num 值
+
+        showCursor:true,  // 默认true    是否 显示光标
+
+        cursorChar: "|",   //默认 |  光标 样式  （这是一个 字符串 随便写  a b c ——  等等 都可以）  
+
+        contentType:"text", // 内容类型  就是渲染的 什么类型  html/text 
+
+        attr:null, // 属性 这个 在input 使用  （后面演示）
+
+        fadeOut:false,  // 删除文字的动画  默认 false 
+
+        onComplete:function(self){
+            alert('完成后回调函数')  // 完成后回调函数
+            console.log(self)  // 参数  self  是 Typed 对象的属性
+        },
+
+        onStop:function(){
+            alert('点击 停止 按钮触发后=>触发');
+        },
+
+        onStart:function(){
+            alert('点击 开始 按钮触发后=>触发')
+        },
+
+        onReset:function(){
+            alert('点击 复位 按钮触发后=>触发')
+        },
+
+        onDestroy:function(){
+            alert('点击 卸载Typed对象 按钮触发后=>触发')
+        },
+
+
+    })
+  
+    document.querySelector('.toggle').addEventListener('click', function() {
+        typed.toggle(); // 开始跟停止 切换
+    });
+    document.querySelector('.stop').addEventListener('click', function() {
+        typed.stop(); // 停止
+    });
+    document.querySelector('.start').addEventListener('click', function() {
+        typed.start(); // 开始
+    });
+    document.querySelector('.reset').addEventListener('click', function() {
+        typed.reset(); // 复位
+    });
+    document.querySelector('.destroy').addEventListener('click', function() {
+        typed.destroy(); // 卸载 对象
+    });
+</script>
+</html>

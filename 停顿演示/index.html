@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>停顿演示</title>
+    <!-- 引入文字js -->
+    <script src="../js/typed.js"></script>
+</head>
+<body>
+    <div class="box">
+        <span id="typed"></span>
+    </div>
+</body>
+<script>
+    // attr 的属性   这个 可以 直接 在页面的 title 写 
+    new Typed("#typed",{
+        strings:['我是第一段 ^1000\n `我是第二段` ^1000\n `我是第三段` ^1000\n `我是第四段`'],
+        typeSpeed:50,
+        fadeOut:true
+    })
+</script>
+</html>
